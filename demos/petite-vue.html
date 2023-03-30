@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue mini-island demo</title>
+
+    <script type="module">
+      import "../mini-island.js";
+    </script>
+  </head>
+  <body>
+    <h1>Petite-vue</h1>
+    <mark>This is a petite-vue counter </mark>
+
+    <p>
+      By default, this button does not load any Javascript and isn't hydrated.
+    </p>
+
+    <p>
+      Resize your browser to match the media query:
+      <code>(max-width: 400px)</code> to hydrate the island
+    </p>
+
+    <mini-island client:media="(max-width: 400px)">
+      <div id="vue-app" v-scope="{ count: 0 }">
+        <button @click="count++">
+          <span>⬆️</span>
+
+          <div>
+            <strong>Petite-vue</strong>
+            <div>
+              <span v-html="count">0</span>
+              <span>-</span>
+              <span>clicks</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <template data-island>
+        <script type="module">
+          import { createApp } from "https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js";
+
+          createApp().mount("#vue-app");
+        </script>
+      </template>
+    </mini-island>
+  </body>
+</html>
