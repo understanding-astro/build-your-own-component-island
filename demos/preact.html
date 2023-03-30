@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preact mini-island demo</title>
+
+    <script type="module">
+      import "../mini-island.js";
+    </script>
+  </head>
+
+  <body>
+    <h1>Preact</h1>
+    <p>This is a preact counter</p>
+
+    <p>By default, this button is not rendered or hydrated</p>
+
+    <mini-island client:idle>
+      <div id="preact-app">
+        <mark
+          >The counter island will be rendered and hydrated just above this mark
+          when the browser is idle</mark
+        >
+      </div>
+
+      <template data-island>
+        <script type="module">
+          import { h, Component, render } from "https://esm.sh/preact";
+          import { useState } from "https://esm.sh/preact/hooks";
+          import htm from "https://esm.sh/htm";
+
+          // Initialize htm with Preact
+          const html = htm.bind(h);
+
+          function App(props) {
+            const [count, setCount] = useState(0);
+
+            const increment = () =>
+              setCount((currentCount) => currentCount + 1);
+
+            return html`<div>
+              <button onClick=${() => increment()}>
+                <span>⬆️ </span>
+
+                <div>
+                  <strong>Preact</strong>
+                  <div>
+                    <span>${count}</span>
+                    <span>-</span>
+                    <span>clicks</span>
+                  </div>
+                </div>
+              </button>
+            </div>`;
+          }
+
+          render(html`<${App} />`, document.getElementById("preact-app"));
+        </script>
+      </template>
+    </mini-island>
+
+    <ul>
+      <li>The document must be completely loaded</li>
+      <li>The large image below must complete loading</li>
+    </ul>
+
+    <img
+      src="https://effigis.com/wp-content/uploads/2015/02/DigitalGlobe_WorldView2_50cm_8bit_Pansharpened_RGB_DRA_Rome_Italy_2009DEC10_8bits_sub_r_1.jpg"
+      alt="25MB large satellite image of Rome italy"
+    />
+  </body>
+</html>
