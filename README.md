@@ -4,7 +4,7 @@
 
 <br />
 
-![Understanding Astro](https://i.imgur.com/TfaKFNR.png)
+![Understanding Astro](https://i.imgur.com/f9hzdCB.png)
 
 <h1 align="center">
   <a href="https://github.com/understanding-astro/understanding-astro-book/tree/master" target="_blank">
@@ -16,8 +16,6 @@
 <br />
 
 ## Annotated component island implementation
-
-See [mini-island.js](https://github.com/understanding-astro/build-your-own-component-island/blob/master/mini-island.js)
 
 <h3 align="center">
   <a href="/mini-island.js">
