@@ -18,3 +18,9 @@
 ## Annotated component island implementation
 
 See [mini-island.js](https://github.com/understanding-astro/build-your-own-component-island/blob/master/mini-island.js)
+
+<h3 align="center">
+  <a href="/mini-island.js">
+      ✨ See mini-island.js ✨
+  </a> 
+</h3>
